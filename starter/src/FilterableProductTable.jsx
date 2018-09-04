@@ -1,5 +1,6 @@
 import React from 'react';
 import ProductTable from './ProductTable';
+import {PRODUCTS} from './products';
 
 import SearchBar from './SearchBar';
 
@@ -22,8 +23,11 @@ export default class FilterableProductTable extends React.Component{
 	render(){
 		return(
 		<div>
-		 <SearchBar/>
-		 <ProductTable/>
+		 <SearchBar searchDetail ={this.state}
+		 handleFilterTextChange ={this.handleFilterTextChange}
+		 handleInStockOnlyChange={this.handleInStockOnlyChange}
+		 />
+		 <ProductTable products = { PRODUCTS } searchDetails={this.state}/>
 		</div>
 		);
 	}
